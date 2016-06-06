@@ -85,20 +85,33 @@
 
 
 <meta name="description" content="这是用hexo+github搭建博客的第一篇文章：） 
-An inline image , title is optional.">
+遇到的一些坑：
+1._config.yml里
+url: http://www.zhangkun.site/  #这里填你申请的域名
+root: /                            #这里填根目录就好
+2.CNAME文件
+zhangkun.site                    #直接写申请的域名就好，不要带协议">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hello blog">
 <meta property="og:url" content="http://www.zhangkun.site/2016/06/02/hello-blog/index.html">
 <meta property="og:site_name" content="mBlog">
 <meta property="og:description" content="这是用hexo+github搭建博客的第一篇文章：） 
-An inline image , title is optional.">
-<meta property="og:image" content="http://25.io/smaller/favicon.ico">
-<meta property="og:updated_time" content="2016-06-03T08:22:43.000Z">
+遇到的一些坑：
+1._config.yml里
+url: http://www.zhangkun.site/  #这里填你申请的域名
+root: /                            #这里填根目录就好
+2.CNAME文件
+zhangkun.site                    #直接写申请的域名就好，不要带协议">
+<meta property="og:updated_time" content="2016-06-06T09:56:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hello blog">
 <meta name="twitter:description" content="这是用hexo+github搭建博客的第一篇文章：） 
-An inline image , title is optional.">
-<meta name="twitter:image" content="http://25.io/smaller/favicon.ico">
+遇到的一些坑：
+1._config.yml里
+url: http://www.zhangkun.site/  #这里填你申请的域名
+root: /                            #这里填根目录就好
+2.CNAME文件
+zhangkun.site                    #直接写申请的域名就好，不要带协议">
 
 
 
@@ -174,7 +187,7 @@ An inline image , title is optional.">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Accueil
           </a>
         </li>
       
@@ -184,7 +197,7 @@ An inline image , title is optional.">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -247,7 +260,7 @@ An inline image , title is optional.">
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-06-02T17:37:30+08:00" content="2016-06-02">
               2016-06-02
             </time>
@@ -277,8 +290,19 @@ An inline image , title is optional.">
 
       
         <p><strong> 这是用hexo+github搭建博客的第一篇文章：） </strong></p>
-<p>An inline image <img src="http://25.io/smaller/favicon.ico" alt="Smaller icon" title="Title here">, title is optional.</p>
-
+<p>遇到的一些坑：</p>
+<p>1._config.yml里</p>
+<pre><code>url: http://www.zhangkun.site/  #这里填你申请的域名
+root: /                            #这里填根目录就好
+</code></pre><p>2.CNAME文件</p>
+<pre><code>zhangkun.site                    #直接写申请的域名就好，不要带协议和次级域名
+</code></pre><p>（直接 在/source/CNAME配置 deploy后自动在github根目录生成~）</p>
+<p>更换主题步骤:</p>
+<p>1.找到你要换的主题的github地址，终端里输入</p>
+<pre><code>$ git clone https://github.com/iissnan/hexo-theme-next.git themes/next
+</code></pre><p>2.在_config.yml里修改</p>
+<pre><code>theme: next
+</code></pre>
       
     </div>
 
@@ -349,10 +373,10 @@ An inline image , title is optional.">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table Des Matières
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Ensemble
           </li>
         </ul>
       
@@ -369,7 +393,7 @@ An inline image , title is optional.">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">articles</span>
             </a>
           </div>
 
@@ -379,7 +403,7 @@ An inline image , title is optional.">
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -407,7 +431,7 @@ An inline image , title is optional.">
               
             
             
-              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
         </section>
@@ -434,11 +458,11 @@ An inline image , title is optional.">
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>

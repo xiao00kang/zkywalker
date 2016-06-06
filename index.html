@@ -170,7 +170,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Accueil
           </a>
         </li>
       
@@ -180,7 +180,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -246,7 +246,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posté le</span>
             <time itemprop="dateCreated" datetime="2016-06-02T17:37:30+08:00" content="2016-06-02">
               2016-06-02
             </time>
@@ -278,8 +278,19 @@
         
           
             <p><strong> 这是用hexo+github搭建博客的第一篇文章：） </strong></p>
-<p>An inline image <img src="http://25.io/smaller/favicon.ico" alt="Smaller icon" title="Title here">, title is optional.</p>
-
+<p>遇到的一些坑：</p>
+<p>1._config.yml里</p>
+<pre><code>url: http://www.zhangkun.site/  #这里填你申请的域名
+root: /                            #这里填根目录就好
+</code></pre><p>2.CNAME文件</p>
+<pre><code>zhangkun.site                    #直接写申请的域名就好，不要带协议和次级域名
+</code></pre><p>（直接 在/source/CNAME配置 deploy后自动在github根目录生成~）</p>
+<p>更换主题步骤:</p>
+<p>1.找到你要换的主题的github地址，终端里输入</p>
+<pre><code>$ git clone https://github.com/iissnan/hexo-theme-next.git themes/next
+</code></pre><p>2.在_config.yml里修改</p>
+<pre><code>theme: next
+</code></pre>
           
         
       
@@ -349,7 +360,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">articles</span>
             </a>
           </div>
 
@@ -359,7 +370,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -403,11 +414,11 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  Theme -
+  Thème -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
