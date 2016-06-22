@@ -411,18 +411,18 @@ root: /                            #这里填根目录就好
 
 &lt;/div&gt;
 </code></pre><p>之间加入</p>
-<pre><code>{% if page.comments %}
-      <div class="comments" id="comments">
-        {% if (config.duoshuo and config.duoshuo.shortname) or config.duoshuo_shortname %}
-          <div class="ds-thread" data-thread-key="{{ page.path }}" data-title="{{ page.title }}" data-url="{{ page.permalink }}">
-          </div>
-        {% elseif config.disqus_shortname %}
-          <div id="disqus_thread">
-            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-          </div>
-        {% endif %}
-  &lt;/div&gt;
-{% endif %}
+<pre><code>//{% if page.comments %}
+      //<div class="comments" id="comments">
+        //{% if (config.duoshuo and config.duoshuo.shortname) or config.duoshuo_shortname %}
+         // <div class="ds-thread" data-thread-key="{{ page.path }}" data-title="{{ page.title }}" data-url="{{ page.permalink }}">
+          //</div>
+        //{% elseif config.disqus_shortname %}
+          //<div id="disqus_thread">
+            //<noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          //</div>
+        //{% endif %}
+  //&lt;/div&gt;
+//{% endif %}
 </div></code></pre><p> 将下面的代码复制到/themes/next/layout/page.swig的最后</p>
 <pre><code>{% block comment_system %}
   		{% include '_scripts/comments/duoshuo.swig' %}
