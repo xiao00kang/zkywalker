@@ -102,7 +102,7 @@ url: http://www.zhangkun.site/  #这里填你申请的域名
 root: /                            #这里填根目录就好
 2.CNAME文件
 zhangkun.site                    #直接写申请的域名就好，不要带协议">
-<meta property="og:updated_time" content="2016-06-06T09:56:00.000Z">
+<meta property="og:updated_time" content="2016-06-22T07:34:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hello blog">
 <meta name="twitter:description" content="这是用hexo+github搭建博客的第一篇文章：） 
@@ -305,11 +305,50 @@ root: /                            #这里填根目录就好
 <pre><code>zhangkun.site                    #直接写申请的域名就好，不要带协议和次级域名
 </code></pre><p>（直接 在/source/CNAME配置 deploy后自动在github根目录生成~）</p>
 <p>更换主题步骤:</p>
-<p>1.找到你要换的主题的github地址，终端里输入</p>
+<p><1>找到你要换的主题的github地址，终端里输入</1></p>
 <pre><code>$ git clone https://github.com/iissnan/hexo-theme-next.git themes/next
-</code></pre><p>2.在_config.yml里修改</p>
+</code></pre><p><2>在_config.yml里修改</2></p>
 <pre><code>theme: next
-</code></pre>
+</code></pre><p>###6.22 编辑</p>
+<p>3.多说评论</p>
+<p>_config.yml加入：</p>
+<pre><code>duoshuo_shortname: zhan9kun        #填写多说申请的名称
+</code></pre><p>next主题加入多说代码的方法：</p>
+<p>在/themes/next/layout/page.swig里</p>
+<pre><code>    {{ page.content }}
+  {% endif %}
+
+
+&lt;/div&gt;
+</code></pre><p>之间加入</p>
+<pre><code>{% if page.comments %}
+      <div class="comments" id="comments">
+        {% if (config.duoshuo and config.duoshuo.shortname) or config.duoshuo_shortname %}
+          <div class="ds-thread" data-thread-key="{{ page.path }}" data-title="{{ page.title }}" data-url="{{ page.permalink }}">
+          </div>
+        {% elseif config.disqus_shortname %}
+          <div id="disqus_thread">
+            <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        {% endif %}
+  &lt;/div&gt;
+{% endif %}
+</div></code></pre><p> 将下面的代码复制到/themes/next/layout/page.swig的最后</p>
+<pre><code>{% block comment_system %}
+  		{% include '_scripts/comments/duoshuo.swig' %}
+  		{% include '_scripts/comments/disqus.swig' %}
+		{% endblock %}
+</code></pre><p>4.存储使用了七牛。因为github上存储后，更新hexo会自己删除根目录下的文件，还以为github不让存东西呢- -</p>
+<p>实名注册后还有蛮多的福利：</p>
+<blockquote>
+<p>10GB 永久免费存储空间</p>
+<p>每月 10GB 下载流量</p>
+<p>每月 10万 次PUT请求</p>
+<p>每月 100万 次GET请求</p>
+<p>每月 750 小时自定义数据处理实例免费使用时间</p>
+<p>每月MPS配额 20元</p>
+</blockquote>
+
       
     </div>
 
