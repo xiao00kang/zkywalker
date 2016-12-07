@@ -4,7 +4,7 @@
     <!-- Title -->
     
     <title>
-        about | _blog
+        python爬虫,flask入门:事业编招聘信息爬去 | _blog
     </title>
     
     <!-- Favicons -->
@@ -40,7 +40,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://www.zhangkun.site">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="about | _blog">
+    <meta property="og:title" content="python爬虫,flask入门:事业编招聘信息爬去 | _blog">
     <meta property="og:description" content="全栈之心&amp;&amp;android开发者&amp;&amp;python是世界上最好的语言">
     
      <!--[if lte IE 9]>
@@ -215,7 +215,7 @@
 	<ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
 		for="post-toc-trigger-btn">
 			
-			
+			<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#页面分析"><span class="post-toc-number">1.</span> <span class="post-toc-text">页面分析</span></a></li></ol>
 		
 <!--			<li class="mdl-menu__item">Some Action</li>-->
 	</ul>
@@ -248,7 +248,7 @@
 		
 	
         <p class="article-headline-p">
-            about
+            python爬虫,flask入门:事业编招聘信息爬去
         </p>
     </div>
 
@@ -266,7 +266,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>zhan9kun</strong>
-        <span>12月 04, 2016</span>
+        <span>12月 07, 2016</span>
     </div>
     
     <div class="section-spacer"></div>
@@ -286,7 +286,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        
+        <a class="post_tag-link" href="/tags/flask/">flask</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/python/">python</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/爬虫入门/">爬虫入门</a>
     </ul>
     
     <!-- Share -->
@@ -301,21 +301,21 @@
     
     
     <!-- Share Twitter -->
-    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=about&url=http://www.zhangkun.site//about/index.html&via=zhan9kun" target="_blank">
+    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=python爬虫,flask入门:事业编招聘信息爬去&url=http://www.zhangkun.site//2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/index.html&via=zhan9kun" target="_blank">
         <li class="mdl-menu__item">
             分享到 Twitter
         </li>
     </a>
     
     <!-- Share Google+ -->
-    <a class="post_share-link" href="https://plus.google.com/share?url=http://www.zhangkun.site//about/index.html" target="_blank">
+    <a class="post_share-link" href="https://plus.google.com/share?url=http://www.zhangkun.site//2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/index.html" target="_blank">
         <li class="mdl-menu__item">
             分享到 Google+
         </li>
     </a>
     
     <!-- Share Weibo -->
-    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=about&url=http://www.zhangkun.site//about/index.html&pic=&searchPic=false&style=simple" target="_blank">
+    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=python爬虫,flask入门:事业编招聘信息爬去&url=http://www.zhangkun.site//2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/index.html&pic=&searchPic=false&style=simple" target="_blank">
         <li class="mdl-menu__item">
             分享到微博
         </li>
@@ -327,7 +327,78 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
 	
-		
+		<h2 id="页面分析"><a href="#页面分析" class="headerlink" title="页面分析"></a>页面分析</h2><p>1.首页或其他页面可以爬到省份信息:</p>
+<pre><code>http://www.shiyebian.net/
+</code></pre><p><img src="./img/diqu.png" alt="省份"></p>
+<pre><code>&lt;div class=&quot;diqu&quot;&gt;
+&lt;a href=&quot;/beijing/&quot;&gt;北京&lt;/a&gt;
+</code></pre><p>2.地区页面就可以爬到整个省招聘的信息：</p>
+<pre><code>http://www.shiyebian.net/hebei/
+</code></pre><p>1）数据存在无序列表里:</p>
+<pre><code>&lt;div class=&quot;listlie&quot;&gt;
+&lt;ul class=&quot;lie1&quot;&gt;
+&lt;li&gt;
+&lt;a href =&quot;招聘信息url&quot;
+&lt;/li&gt;
+</code></pre><p>汇总条目带<strong>标签<br><img src="./img/zhaopinxinxi.png" alt="具体招聘信息"><br>2）翻页：</strong></p>
+<pre><code>/地区 或/地区/index.html 为首页
+/地区/index_页数.html 位置后页面
+</code></pre><p>html标签如下:</p>
+<pre><code>&lt;div class=&quot;fanye&quot;&gt;
+&lt;a href=&quot;下n页url&quot;&gt;第n页&lt;/a&gt;
+</code></pre><p>3.选择市：</p>
+<pre><code>&lt;div class=&quot;xdaohang&quot;&gt;
+</code></pre><p><img src="./img/xuanzeshi.png" alt="选择市"><br>如果是直辖市则显示:<br><img src="./img/quxian_1.png" alt="选择市"><br>4.具体区县页面（貌似没有翻页）:</p>
+<pre><code>&lt;div class=&quot;lie_qx&quot;&gt;
+</code></pre><p><img src="./img/quxian_2.png" alt="选择区县">   </p>
+<p>##思路分析</p>
+<p>实际爬去的内容分为两种：</p>
+<pre><code>1.省市的全部招聘信息 exp:
+    http://www.shiyebian.net/hebei/
+    http://www.shiyebian.net/hebei/shijiazhuang/
+2.区县的全部招聘信息 exp:
+    http://www.shiyebian.net/hebei/shijiazhuangqiaodongqu/
+    http://www.shiyebian.net/beijing/dongchengqu/
+</code></pre><p>先request获取网页内容：</p>
+<pre><code>def download_html(url):
+headers = {
+    &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36&apos;
+}
+try:
+    r = requests.get(url, headers)
+    if r.ok:
+        html = r.content
+        return BeautifulSoup(html, &apos;html.parser&apos;)
+    else:
+        raise RequestException(&apos;url:&apos;+str(url)+&apos;,status code:&apos;+r.status_code)
+except requests.RequestException as e:
+    raise RequestException(e)
+</code></pre><p>然后爬去省份信息：</p>
+<pre><code>#返回一个[{&quot;province&quot;:xxx,&quot;href&quot;:xxx},xxx]的数列，方便直接构造json数据
+def get_list_province(soup):
+    province_list = []
+    diqu = soup.find(&apos;div&apos;, attrs={&apos;class&apos;, &apos;diqu&apos;})
+    for a in diqu.find_all(&apos;a&apos;):
+        province ={}
+        province[&apos;province&apos;] = a.getText()
+        province[&apos;href&apos;] = a[&apos;href&apos;]
+        province_list.append(province)
+    return province_list
+</code></pre><p>爬去全省市的招聘信息：</p>
+<pre><code>def parse_shengshi(soup, keyword=&apos;&apos;):
+    lie1 = soup.find(&apos;ul&apos;, attrs={&apos;class&apos;, &apos;lie1&apos;})
+                my_list = []
+    for li in lie1.find_all(&apos;li&apos;):
+        content = li.getText()
+        if keyword in content:
+            my_dict = {}
+            content_url = li.find(&apos;a&apos;)[&apos;href&apos;]
+            my_dict[&apos;title&apos;] = content
+            my_dict[&apos;url&apos;] = content_url
+            my_list.append(my_dict)
+    return my_list
+</code></pre><p>然后爬取区县招聘信息：</p>
+
 	
 	
 	
@@ -354,9 +425,9 @@
 <div id="comments">
     <!-- 多说评论框 start -->
         <div class="ds-thread" 
-            data-thread-key="about/index.html" 
-            data-url="http://www.zhangkun.site//about/index.html"
-            data-title="about"></div>
+            data-thread-key="2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/" 
+            data-url="http://www.zhangkun.site//2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/index.html"
+            data-title="python爬虫,flask入门:事业编招聘信息爬去"></div>
     <!-- 多说评论框 end -->
 </div>
 
@@ -374,6 +445,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2016/06/08/mac-idea快捷键（个人翻译）/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
         </div>
