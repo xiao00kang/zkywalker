@@ -194,7 +194,9 @@
                 </button>
 				
 				
-                
+                <!-- Post TOC -->
+
+    
 	<!-- Back Button -->
 <!--
 	<div class="material-back" id="backhome-div" tabindex="0">
@@ -219,6 +221,7 @@
 		
 <!--			<li class="mdl-menu__item">Some Action</li>-->
 	</ul>
+
 
 
 <!-- Layouts -->
@@ -398,7 +401,66 @@ def get_list_province(soup):
             my_list.append(my_dict)
     return my_list
 </code></pre><p>然后爬取区县招聘信息：</p>
-
+<pre><code>def parse_quxian(soup, keyword=&apos;&apos;):
+    lie_qx = soup.find(&apos;div&apos;, attrs={&apos;class&apos;, &apos;lie_qx&apos;})
+    my_list = []
+    for a in lie_qx.find_all(&apos;a&apos;):
+        content = a.getText()
+        if not &apos;查看详情&apos; in content:
+            if keyword in content:
+                href = a[&apos;href&apos;]
+                my_dict = {}
+                my_dict[&apos;title&apos;] = content
+                my_dict[&apos;url&apos;] = href
+                my_list.append(my_dict)
+    return my_list
+</code></pre><p>##写入excel</p>
+<p>爬去，写入省份信息提取成函数：</p>
+<pre><code>#cent用来计数已经爬去的信息数量，因为我们要爬去多页信息
+def w_province(url, sheet, cent):
+    #捕捉异常，如404等
+    try:
+        soup = shiyebian_worm.download_html(url)
+    except Exception as e:
+        logging.info(e)
+        return cent
+    l = shiyebian_worm.parse_shengshi(soup)
+    for i in range(len(l)):
+        title = l[i][&apos;title&apos;]
+        #用正则提取标题中的日期
+        date_regex = re.compile(r&apos;\d\d-\d\d\d\d\d\d&apos;)
+        date = date_regex.search(title)
+        if date is None:
+            sheet.cell(row=i + cent, column=1).value = &apos;--&apos;
+        else:
+            sheet.cell(row=i + cent, column=1).value = date.group()
+            title = title[10:]
+        sheet.cell(row=i + cent, column=2).value = title
+        sheet.cell(row=i + cent, column=3).value = l[i][&apos;url&apos;]
+    cent += len(l)
+    return cent
+</code></pre><p>写入各省份到excel</p>
+<pre><code>#获取省份列表
+provinces = shiyebian_worm.get_list_province(shiyebian_worm.download_html(URL_SHIYE))
+wb = openpyxl.Workbook()
+#遍历省份爬去信息
+for d in provinces:
+    #按省份创建sheet
+    sheet_province = wb.create_sheet(title=d[&apos;province&apos;])
+    sheet_province[&apos;A1&apos;] = &apos;日期&apos;
+    sheet_province[&apos;B1&apos;] = &apos;招聘信息&apos;
+    sheet_province[&apos;C1&apos;] = &apos;详细连接&apos;
+    url = URL_SHIYE + d[&apos;href&apos;]
+    cent = w_province(url+&apos;index.html&apos;, sheet_province, 2)
+    #就爬两页，实际上爬去翻页的时候最好直接爬连接
+    url += &apos;index_2.html&apos;
+    w_province(url, sheet_province, cent)
+    logging.info(d[&apos;province&apos;] + &apos;写入成功&apos;)
+#删除空的sheet
+wb.remove_sheet(wb.get_sheet_by_name(&apos;Sheet&apos;))
+#保存
+wb.save(&apos;事业编招聘汇总.xlsx&apos;)
+</code></pre>
 	
 	
 	
@@ -409,6 +471,7 @@ def get_list_province(soup):
 
                 <!-- Post Comments -->
                 
+                    
     <!-- 使用多说评论 -->
     <link rel="stylesheet" href="/css/duoshuo.min.css">
 <style>
@@ -426,13 +489,14 @@ def get_list_province(soup):
     <!-- 多说评论框 start -->
         <div class="ds-thread" 
             data-thread-key="2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/" 
-            data-url="http://www.zhangkun.site//2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/index.html"
+            data-url="http://www.zhangkun.site/2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/"
             data-title="python爬虫,flask入门:事业编招聘信息爬去"></div>
     <!-- 多说评论框 end -->
 </div>
 
 
 
+                
             </div>
 
             <!-- Post Prev & Next Nav -->
@@ -769,6 +833,9 @@ It will not impact the appearance and can give developers a lot of support :)
         $(".post-toc-wrap").parent(".mdl-menu__container").css("position", "fixed");
     });
 </script>
+
+<!-- MathJax Load-->
+
             </main>
         </div>
 		

@@ -285,11 +285,8 @@
         </button>
         <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
             
-            <a class="index_share-link" href="null">
-                <li class="mdl-menu__item mdl-js-ripple-effect">
-                    文章 RSS
-                </li>
-            </a>
+            
+            
             <a class="index_share-link" href="https://twitter.com/intent/tweet?text=_blog&url=http://www.zhangkun.site/&via=zhan9kun" target="_blank">
                 <li class="mdl-menu__item mdl-js-ripple-effect">
                     分享到 Twitter
@@ -310,6 +307,7 @@
 </div>
 
 	
+    <div class="locate-thumbnail-symbol"></div>
     
     
 		
@@ -331,7 +329,7 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-          页面分析
+            页面分析
         
         &nbsp;&nbsp;&nbsp;
         <span>
@@ -360,7 +358,7 @@
                 <!-- Comment Number -->
                 &nbsp;|&nbsp;
                 <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="undefined" data-count-type="comments"></span>
+                        <span class="ds-thread-count" data-thread-key="2016/12/07/python爬虫-flask入门-事业编招聘信息爬去/" data-count-type="comments"></span>
                 </span>
             
             
@@ -395,7 +393,7 @@
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-          翻译了一半，剩下有空再改。
+            翻译了一半，剩下有空再改。
 btw，mac的快捷键个别和系统冲突，参考含义自己改建就好。
         
         &nbsp;&nbsp;&nbsp;
@@ -425,7 +423,7 @@ btw，mac的快捷键个别和系统冲突，参考含义自己改建就好。
                 <!-- Comment Number -->
                 &nbsp;|&nbsp;
                 <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="undefined" data-count-type="comments"></span>
+                        <span class="ds-thread-count" data-thread-key="2016/06/08/mac-idea快捷键（个人翻译）/" data-count-type="comments"></span>
                 </span>
             
             
@@ -460,7 +458,7 @@ btw，mac的快捷键个别和系统冲突，参考含义自己改建就好。
     <!-- Post Excerpt -->
     <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
         
-           这是用hexo+github搭建博客的第一篇文章：） 
+             这是用hexo+github搭建博客的第一篇文章：） 
 遇到的一些坑：
 1._con...
         
@@ -491,7 +489,7 @@ btw，mac的快捷键个别和系统冲突，参考含义自己改建就好。
                 <!-- Comment Number -->
                 &nbsp;|&nbsp;
                 <span class="post_entry-comment" >
-                        <span class="ds-thread-count" data-thread-key="undefined" data-count-type="comments"></span>
+                        <span class="ds-thread-count" data-thread-key="2016/06/02/hello-blog/" data-count-type="comments"></span>
                 </span>
             
             
@@ -513,7 +511,7 @@ btw，mac的快捷键个别和系统冲突，参考含义自己改建就好。
     
     var randomNum;
     
-    var locatePost = $(".something-else").next();
+    var locatePost = $(".locate-thumbnail-symbol").next();
     for(var i=0; i < 10; i++){
         
         randomNum = Math.floor(Math.random() * 5 + 1);
@@ -841,6 +839,9 @@ It will not impact the appearance and can give developers a lot of support :)
         $(".post-toc-wrap").parent(".mdl-menu__container").css("position", "fixed");
     });
 </script>
+
+<!-- MathJax Load-->
+
             </main>
         </div>
 		
